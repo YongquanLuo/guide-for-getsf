@@ -21,8 +21,8 @@ beam = Beam(major = header['BMAJ']*u.deg, minor = header['BMIN']*u.deg, pa = hea
 beam_arc = np.sqrt(beam.sr.to(u.arcsec * u.arcsec)).value
 
 wcs = WCS(header)
-# pix_area = abs(wcs.proj_plane_pixel_area()).to(u.sr)  # 每像素对应的sr面积
-beam_area = beam.sr                                 # beam 的固角
+# pix_area = abs(wcs.proj_plane_pixel_area()).to(u.sr)  # area of each pixel in sr
+beam_area = beam.sr                                 # spherical angle of beam
 
 data_Jy_sr = data * (1*u.Jy) / beam_area
 data_MJy_sr = data_Jy_sr.to(u.MJy/u.sr)
@@ -48,5 +48,6 @@ header_new['BSCALE'] = 1
 
 hdu_new = fits.PrimaryHDU(data = data_MJy_sr.value, header = header_new)
 hdu_new.writeto("***\\alma_1300.fits", overwrite = False)
+
 
 
