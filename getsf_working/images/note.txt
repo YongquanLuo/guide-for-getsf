@@ -1,0 +1,3 @@
+before you run getsf, you would better run the following command to standardize the header:
+modfits multiply 1 fitsfile -o fitsfile
+modfits multiply 1 fitsfile.omask -o fitsfile.omask
