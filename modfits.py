@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Aug 20 16:45:00 2025
-
-@author: Luo
-"""
 
 #%%
 
@@ -15,7 +10,7 @@ import numpy as np
 
 #%%
 
-hdu = fits.open("D:\Working Area 2\\code\\MyWork\\G332.296-0.094\\ALMA_band6\\new_concat_flag_continuum_final.image.tt0.fits")
+hdu = fits.open("your fits file")
 header = hdu[0].header
 data = hdu[0].data
 hdu.close()
@@ -52,5 +47,6 @@ header_new['BZERO'] = 0
 header_new['BSCALE'] = 1
 
 hdu_new = fits.PrimaryHDU(data = data_MJy_sr.value, header = header_new)
-hdu_new.writeto("D:\Working Area 2\\code\MyWork\G332.296-0.094\\pre_getsf\\alma_1300.fits", overwrite = False)
+hdu_new.writeto("***\\alma_1300.fits", overwrite = False)
+
 
